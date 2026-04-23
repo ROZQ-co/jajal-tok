@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trimono & Puji Rahayu</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:Georgia, serif;
+}
+
+body{
+background:#f9f7f2;
+color:#333;
+overflow-x:hidden;
+}
+
+/* SECTION */
+section{
+min-height:100vh;
+padding:40px 25px;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+/* ORNAMEN JAWA */
+section::before{
+content:"❖ ❁ ❖";
+position:absolute;
+top:20px;
+font-size:26px;
+letter-spacing:10px;
+color:#c8a96a;
+animation:floatTop 4s ease-in-out infinite;
+}
+
+section::after{
+content:"❖ ❁ ❖";
+position:absolute;
+bottom:20px;
+font-size:26px;
+letter-spacing:10px;
+color:#c8a96a;
+animation:floatBottom 4s ease-in-out infinite;
+}
+
+/* COVER */
+.cover{
+background:linear-gradient(rgba(255,255,255,.72),rgba(255,255,255,.72)),
+url('https://ayopesta.com/wp-content/uploads/2025/06/backgroud-undangan-adat-jawa-wayang-scaled.jpg');
+background-size:cover;
+background-position:center;
+}
+
+/* BOX */
+.box{
+max-width:620px;
+background:rgba(255,255,255,.78);
+padding:32px;
+border-radius:22px;
+box-shadow:0 12px 35px rgba(0,0,0,.08);
+backdrop-filter:blur(5px);
+border:1px solid rgba(200,169,106,.35);
+}
+
+/* ANIMASI MASUK */
+h1,h2,p,.btn,.foto,.nama,.timer{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* TEXT */
+h1{
+font-size:44px;
+color:#8a6634;
+margin:10px 0;
+animation:glow 3s infinite;
+}
+
+h2{
+font-size:30px;
+color:#8a6634;
+margin-bottom:10px;
+}
+
+p{
+font-size:18px;
+line-height:1.7;
+margin:5px 0;
+}
+
+.nama{
+font-size:30px;
+font-weight:bold;
+margin:15px 0;
+color:#6f4f28;
+}
+
+/* BUTTON */
+.btn{
+margin-top:20px;
+padding:14px 30px;
+border:none;
+border-radius:30px;
+background:#8a6634;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+background:#a67c42;
+}
+
+/* GALERI */
+.gallery{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:20px;
+}
+
+.foto{
+width:120px;
+height:150px;
+border-radius:18px;
+background:#ddd;
+background-size:cover;
+background-position:center;
+transform:scale(.6) rotate(-8deg);
+transition:1s;
+}
+
+.foto.show{
+opacity:1;
+transform:scale(1) rotate(0deg);
+}
+
+/* TIMER */
+.timer{
+font-size:25px;
+font-weight:bold;
+margin-top:15px;
+color:#8a6634;
+}
+
+/* KEYFRAME */
+@keyframes floatTop{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+}
+
+@keyframes floatBottom{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(8px);}
+}
+
+@keyframes glow{
+0%,100%{text-shadow:0 0 0px transparent;}
+50%{text-shadow:0 0 12px rgba(200,169,106,.55);}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musik" loop>
+<source src="lestari.mp3" type="audio/mpeg">
+</audio>
+
+<section class="cover">
+<div class="box">
+<p class="animate">The Wedding Of</p>
+<h1 class="animate">Trimono & Puji</h1>
+<p class="animate">Kepada Yth.</p>
+<div class="nama animate" id="guest">Tamu Undangan</div>
+<button class="btn animate" onclick="bukaUndangan()">Buka Undangan</button>
+</div>
+</section>
+
+<section>
+<div class="box">
+<h2 class="animate">Assalamu'alaikum</h2>
+<p class="animate">Dengan memohon rahmat Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami.</p>
+</div>
+</section>
+
+<section>
+<div class="box">
+<h2 class="animate">Mempelai</h2>
+<p class="animate"><b>Trimono</b></p>
+<p class="animate">Putra dari Bapak Saeno & Ibu Suwarni</p>
+<br>
+<p class="animate"><b>Puji Rahayu</b></p>
+<p class="animate">Putri dari Ibu Sukinem (PB)</p>
+</div>
+</section>
+
+<section>
+<div class="box">
+<h2 class="animate">Galeri</h2>
+<div class="gallery">
+<div class="foto" style="background-image:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=500&q=80')"></div>
+<div class="foto" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80')"></div>
+<div class="foto" style="background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=500&q=80')"></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="box">
+<h2 class="animate">Acara</h2>
+<p class="animate">Kamis, 28 Mei 2026</p>
+<p class="animate">Ds Tempuran, Dsn Munggur</p>
+<p class="animate">Kec Paron, Kab Ngawi</p>
+<div class="timer animate" id="timer"></div>
+</div>
+</section>
+
+<section>
+<div class="box">
+<h2 class="animate">Matur Nuwun</h2>
+<p class="animate">Merupakan kehormatan bagi kami atas kehadiran dan doa restu Anda.</p>
+</div>
+</section>
+
+<script>
+function bukaUndangan(){
+document.getElementById("musik").play();
+window.scrollTo({
+top:window.innerHeight,
+behavior:"smooth"
+});
+}
+
+const params = new URLSearchParams(window.location.search);
+const nama = params.get("to");
+if(nama){
+document.getElementById("guest").innerText = nama;
+}
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+
+entry.target.querySelectorAll('.animate').forEach((el,i)=>{
+setTimeout(()=>{
+el.classList.add('show');
+},i*180);
+});
+
+entry.target.querySelectorAll('.foto').forEach((el,i)=>{
+setTimeout(()=>{
+el.classList.add('show');
+},i*250);
+});
+
+}
+});
+},{threshold:.3});
+
+document.querySelectorAll("section").forEach(sec=>{
+observer.observe(sec);
+});
+
+const tujuan = new Date("May 28, 2026 08:00:00").getTime();
+
+setInterval(()=>{
+let now = new Date().getTime();
+let jarak = tujuan-now;
+
+let h = Math.floor(jarak/(1000*60*60*24));
+let j = Math.floor((jarak%(1000*60*60*24))/(1000*60*60));
+let m = Math.floor((jarak%(1000*60*60))/(1000*60));
+let d = Math.floor((jarak%(1000*60))/1000);
+
+document.getElementById("timer").innerHTML =
+h+" Hari "+j+" Jam "+m+" Menit "+d+" Detik";
+},1000);
+</script>
+
+</body>
+</html>
