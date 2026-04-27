@@ -1,197 +1,168 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Jawa Ultimate</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Zainal & Umi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --maroon: #7b1113;
+            --cream: #fdf5f5;
+            --gold: #c5a059;
+            --text: #4a0e0e;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+        * { box-sizing: border-box; }
+        body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--cream); color: var(--text); overflow-x: hidden; }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:#120c06;color:#fff;overflow-x:hidden}
-section{min-height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden}
+        /* --- COVER --- */
+        #cover {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000') no-repeat center center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 1000; transition: transform 1s cubic-bezier(0.7, 0, 0.3, 1); color: white; text-align: center;
+        }
+        .slide-up { transform: translateY(-100%); }
 
-/* ===== BATIK 3D PREMIUM ===== */
-.batik-bg{
-position:absolute;inset:0;z-index:0;
-background:
-radial-gradient(circle at 20% 30%, rgba(212,175,55,.25), transparent 40%),
-radial-gradient(circle at 80% 70%, rgba(212,175,55,.2), transparent 40%),
-url('https://static.vecteezy.com/system/resources/thumbnails/045/771/399/small_2x/indonesian-javanese-culture-golden-gunungan-wayang-shapes-free-png.png');
-animation:batikMove 25s linear infinite;
-opacity:.35;
-filter:contrast(120%) brightness(90%);
-}
+        h1.latin { font-family: 'Great Vibes', cursive; font-size: 4rem; margin: 10px 0; }
+        .btn-buka { 
+            background: var(--maroon); color: white; border: none; padding: 12px 25px; 
+            border-radius: 30px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
 
-@keyframes batikMove{
-0%{transform:translate(0,0) scale(1)}
-50%{transform:translate(-60px,-40px) scale(1.05)}
-100%{transform:translate(0,0) scale(1)}
-}
+        /* --- CONTENT WRAPPER --- */
+        .container { max-width: 500px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        section { padding: 60px 20px; text-align: center; }
 
-/* LAYER DEPTH (3D FEEL) */
-.layer-glow{
-position:absolute;inset:0;z-index:1;
-background:radial-gradient(circle at center, rgba(212,175,55,.15), transparent 70%);
-animation:glowPulse 6s ease-in-out infinite;
-}
+        /* --- COUNTDOWN --- */
+        .timer-wrap { display: flex; justify-content: space-around; margin: 20px 0; }
+        .timer-item { background: var(--maroon); color: white; padding: 10px; border-radius: 10px; width: 70px; }
+        .timer-item span { display: block; font-size: 1.2rem; font-weight: bold; }
 
-@keyframes glowPulse{
-0%,100%{opacity:.6}
-50%{opacity:1}
-}
+        /* --- JOURNEY --- */
+        .journey-item { border-left: 2px solid var(--maroon); margin-left: 20px; padding-left: 20px; text-align: left; position: relative; margin-bottom: 20px; }
+        .journey-item::before { content: ''; position: absolute; left: -7px; top: 0; width: 12px; height: 12px; background: var(--maroon); border-radius: 50%; }
 
-/* WAYANG HIDUP */
-.wayang{position:absolute;bottom:0;width:130px;opacity:.3;z-index:1;animation:floatWayang 6s ease-in-out infinite}
-.wayang.left{left:10px}
-.wayang.right{right:10px;transform:scaleX(-1)}
+        /* --- GALLERY --- */
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .gallery-grid img { width: 100%; border-radius: 8px; }
 
-@keyframes floatWayang{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-20px)}
-}
-
-.cover{
-background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
-url('https://images.unsplash.com/photo-1519225421980-715cb0215aed');
-background-size:cover;background-position:center;
-}
-
-.box{
-max-width:700px;padding:40px;border-radius:25px;
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(12px);
-border:1px solid rgba(212,175,55,.4);
-box-shadow:0 0 50px rgba(212,175,55,.25);
-position:relative;z-index:2;
-}
-
-h1{font-family:'Playfair Display',serif;font-size:52px;color:#d4af37;margin:15px 0}
-h2{font-size:28px;color:#d4af37;margin-bottom:10px}
-p{font-size:18px;line-height:1.6}
-.nama{font-size:32px;font-weight:bold;margin:15px 0}
-
-.btn{margin-top:20px;padding:14px 35px;border:none;border-radius:30px;background:#d4af37;color:black;cursor:pointer;font-weight:bold;transition:.3s}
-.btn:hover{transform:scale(1.1)}
-
-.animate{opacity:0;transform:translateY(40px);transition:1s}
-.show{opacity:1;transform:translateY(0)}
-.timer{font-size:26px;margin-top:15px;color:#d4af37;font-weight:bold}
-
-@media(max-width:480px){h1{font-size:34px}h2{font-size:22px}p{font-size:16px}.nama{font-size:24px}}
-</style>
+        /* --- FOOTER --- */
+        .footer { padding: 40px; background: #eee; font-size: 0.8rem; }
+        
+        .hidden { display: none; }
+    </style>
 </head>
-
 <body>
 
-<audio id="musik" loop>
-<source src="lestari.mp3" type="audio/mpeg">
-</audio>
+    <audio id="myAudio" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    </audio>
 
-<section class="cover">
-<div class="batik-bg"></div>
-<div class="layer-glow"></div>
-<img class="wayang left" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Wayang_Bima.png">
-<img class="wayang right" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Wayang_Bima.png">
+    <div id="cover">
+        <div data-aos="fade-up">
+            <h3>THE WEDDING OF</h3>
+            <h1 class="latin">Zainal & Umi</h1>
+            <p>Kepada Yth:</p>
+            <h2 id="guest">Nama Tamu</h2>
+            <button class="btn-buka" onclick="bukaUndangan()">Buka Undangan</button>
+        </div>
+    </div>
 
-<div class="box">
-<p class="animate">The Wedding Of</p>
-<h1 class="animate">Trimono & Puji</h1>
-<p class="animate">Kepada Yth.</p>
-<div class="nama animate" id="guest">Tamu Undangan</div>
-<button class="btn animate" onclick="bukaUndangan()">Buka Undangan</button>
-</div>
-</section>
+    <div class="container hidden" id="main-content">
+        
+        <section data-aos="fade-up">
+            <h2 class="latin">Ar-Rum: 21</h2>
+            <p>"Dan di antara tanda-tanda kebesaran-Nya adalah Dia menciptakan pasangan untukmu..."</p>
+        </section>
 
-<section>
-<div class="batik-bg"></div>
-<div class="layer-glow"></div>
-<img class="wayang left" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Wayang_Bima.png">
-<img class="wayang right" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Wayang_Bima.png">
+        <section data-aos="zoom-in">
+            <img src="https://via.placeholder.com/200x300" style="border-radius: 100px 100px 0 0; width: 80%;" alt="Mempelai">
+            <h2 class="latin">Muhammad Zainal Alim</h2>
+            <p>Putra dari Bapak Rasidi & Ibu Buami</p>
+            <h1 class="latin">&</h1>
+            <h2 class="latin">Umi Haniah</h2>
+            <p>Putri dari Bapak M. Husen & Ibu Siti Mariyam</p>
+        </section>
 
-<div class="box">
-<h2 class="animate">Mempelai</h2>
-<p class="animate"><b>Trimono</b></p>
-<p class="animate">Putra dari Bapak Saeno & Ibu Suwarni</p>
-<br>
-<p class="animate"><b>Puji Rahayu</b></p>
-<p class="animate">Putri dari Ibu Sukinem</p>
-</div>
-</section>
+        <section style="background: var(--cream);">
+            <h3>Menuju Hari Bahagia</h3>
+            <div class="timer-wrap">
+                <div class="timer-item"><span id="days">0</span>Hari</div>
+                <div class="timer-item"><span id="hours">0</span>Jam</div>
+                <div class="timer-item"><span id="mins">0</span>Mnt</div>
+                <div class="timer-item"><span id="secs">0</span>Dtk</div>
+            </div>
+        </section>
 
-<section>
-<div class="batik-bg"></div>
-<div class="layer-glow"></div>
-<img class="wayang left" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Wayang_Bima.png">
-<img class="wayang right" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Wayang_Bima.png">
+        <section>
+            <h3 class="latin" style="font-size: 2.5rem;">Our Journey</h3>
+            <div class="journey-item" data-aos="fade-right">
+                <strong>2023</strong>
+                <p>Pertama kali kami bertemu dan mulai mengenal satu sama lain.</p>
+            </div>
+            <div class="journey-item" data-aos="fade-right" data-aos-delay="200">
+                <strong>2025</strong>
+                <p>Kami memutuskan untuk berkomitmen lebih serius (Tunangan).</p>
+            </div>
+            <div class="journey-item" data-aos="fade-right" data-aos-delay="400">
+                <strong>2026</strong>
+                <p>Langkah baru menuju pelaminan dimulai hari ini.</p>
+            </div>
+        </section>
 
-<div class="box">
-<h2 class="animate">Acara</h2>
-<p class="animate">Kamis, 28 Mei 2026</p>
-<p class="animate">Ngawi</p>
-<div class="timer animate" id="timer"></div>
-</div>
-</section>
+        <section data-aos="fade-up">
+            <h3>Akad & Resepsi</h3>
+            <p><strong>Senin, 2 Februari 2026</strong></p>
+            <p>Jelak Rejo Rt 001 Rw 005, Bugul Kidul, Pasuruan</p>
+            <button class="btn-buka" onclick="window.open('https://maps.google.com')">Buka Google Maps</button>
+        </section>
 
-<section>
-<div class="batik-bg"></div>
-<div class="layer-glow"></div>
-<img class="wayang left" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Wayang_Bima.png">
-<img class="wayang right" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Wayang_Bima.png">
+        <section>
+            <h3 class="latin">Our Gallery</h3>
+            <div class="gallery-grid">
+                <img src="https://via.placeholder.com/200" data-aos="zoom-in">
+                <img src="https://via.placeholder.com/200" data-aos="zoom-in">
+                <img src="https://via.placeholder.com/200" data-aos="zoom-in">
+                <img src="https://via.placeholder.com/200" data-aos="zoom-in">
+            </div>
+        </section>
 
-<div class="box">
-<h2 class="animate">Terima Kasih</h2>
-<p class="animate">Merupakan kehormatan bagi kami atas kehadiran dan doa restu Anda.</p>
-<a id="wa" target="_blank"><button class="btn">Kirim Ucapan via WhatsApp</button></a>
-</div>
-</section>
+        <div class="footer">
+            <p>Dibuat dengan ❤️ untuk Zainal & Umi</p>
+        </div>
+    </div>
 
-<script>
-function bukaUndangan(){
-const musik=document.getElementById("musik");
-musik.play().catch(()=>{});
-window.scrollTo({top:window.innerHeight,behavior:"smooth"});
-}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000 });
 
-const params=new URLSearchParams(window.location.search);
-const nama=params.get("to")||"Tamu Undangan";
-document.getElementById("guest").innerText=nama;
+        function bukaUndangan() {
+            document.getElementById('cover').classList.add('slide-up');
+            document.getElementById('main-content').classList.remove('hidden');
+            document.getElementById('myAudio').play();
+            document.body.style.overflow = 'auto';
+        }
 
-const noWa="6281234567890";
-const pesan=`Assalamu'alaikum, saya ${nama} siap hadir di acara pernikahan Trimono & Puji.`;
-document.getElementById("wa").href=`https://wa.me/${noWa}?text=${encodeURIComponent(pesan)}`;
+        // Timer Countdown
+        const targetDate = new Date("Feb 2, 2026 08:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+            document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('mins').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('secs').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+        }, 1000);
 
-window.addEventListener("load",()=>{
-document.querySelectorAll(".cover .animate").forEach((el,i)=>{
-setTimeout(()=>{el.classList.add("show")},i*200)
-})
-})
-
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.querySelectorAll('.animate').forEach((el,i)=>{
-setTimeout(()=>{el.classList.add('show')},i*150)
-})
-}
-})
-},{threshold:.3})
-
-document.querySelectorAll("section").forEach(sec=>observer.observe(sec))
-
-const tujuan=new Date("May 28, 2026 08:00:00").getTime();
-setInterval(()=>{
-let now=new Date().getTime();
-let jarak=tujuan-now;
-if(jarak<0){document.getElementById("timer").innerHTML="Acara Selesai";return}
-let h=Math.floor(jarak/(1000*60*60*24));
-let j=Math.floor((jarak%(1000*60*60*24))/(1000*60*60));
-let m=Math.floor((jarak%(1000*60*60))/(1000*60));
-let d=Math.floor((jarak%(1000*60))/1000);
-document.getElementById("timer").innerHTML=`${h} Hari ${j} Jam ${m} Menit ${d} Detik`;
-},1000)
-</script>
-
+        // Ambil nama tamu dari URL (?to=Nama)
+        const name = new URLSearchParams(window.location.search).get('to');
+        if(name) document.getElementById('guest').innerText = name;
+        
+        document.body.style.overflow = 'hidden';
+    </script>
 </body>
 </html>
