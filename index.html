@@ -24,9 +24,9 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://github.com/ROZQ-co/Kusuma-Invitation/blob/main/galeri4.jpg?raw=true') no-repeat center center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            z-index: 1000; transition: transform 1s cubic-bezier(0.7, 0, 0.3, 1); color: white; text-align: center;
+            z-index: 1000; transition: 1s cubic-bezier(0.7, 0, 0.3, 1); color: white; text-align: center;
         }
-        .slide-up { transform: translateY(-100%); opacity: 0; visibility: hidden; }
+        .slide-up { transform: translateY(-100%); visibility: hidden; }
 
         h1.latin { font-family: 'Great Vibes', cursive; font-size: 3.5rem; margin: 10px 0; }
         .btn-buka { 
@@ -35,10 +35,15 @@
         }
 
         /* --- CONTENT WRAPPER --- */
-        .container { max-width: 500px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.1); opacity: 0; transition: opacity 0.5s; }
-        .container.show { opacity: 1; }
+        .container { 
+            max-width: 500px; 
+            margin: 0 auto; 
+            background: white; 
+            min-height: 100vh; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
         
-        section { padding: 60px 25px; text-align: center; border-bottom: 1px solid #eee; overflow: hidden; }
+        section { padding: 60px 25px; text-align: center; border-bottom: 1px solid #eee; }
 
         .section-img {
             width: 100%; height: 200px; object-fit: cover;
@@ -68,9 +73,7 @@
         .footer { padding: 40px; background: #f9f9f9; font-size: 0.8rem; text-align: center; }
     </style>
 </head>
-<body>
-
-    <audio id="myAudio" loop>
+<body style="overflow: hidden;"> <audio id="myAudio" loop>
         <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
     </audio>
 
@@ -145,31 +148,31 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inisialisasi awal AOS
-        AOS.init({ duration: 1000, once: true });
+        // AOS diaktifkan sejak awal
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100 // Memulai animasi sedikit sebelum elemen terlihat
+        });
 
         function bukaUndangan() {
-            // Sembunyikan Cover
+            // Animasi Cover menghilang
             document.getElementById('cover').classList.add('slide-up');
-            
-            // Tampilkan Konten
-            const mainContent = document.getElementById('main-content');
-            mainContent.classList.add('show');
             
             // Putar Musik
             const audio = document.getElementById('myAudio');
-            audio.play().catch(e => console.log("Musik tidak bisa putar otomatis"));
+            audio.play();
             
-            // Aktifkan Scroll
+            // Buka kunci scroll
             document.body.style.overflow = 'auto';
 
-            // REFRESH AOS - Ini kunci agar animasi muncul saat discroll
+            // Paksa AOS untuk menghitung ulang posisi setelah cover hilang
             setTimeout(() => {
                 AOS.refresh();
-            }, 400);
+            }, 500);
         }
 
-        // Countdown
+        // Countdown Timer ke 28 Mei 2026
         const targetDate = new Date("May 28, 2026 08:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -184,8 +187,6 @@
 
         const name = new URLSearchParams(window.location.search).get('to');
         if(name) document.getElementById('guest').innerText = name;
-        
-        document.body.style.overflow = 'hidden';
     </script>
 </body>
 </html>
